@@ -51,4 +51,12 @@ public final class DeathScoreboard extends JavaPlugin {
             objective.getScore(player.getName()).setScore(deaths);
         }
     }
+    
+    public void incrementDeathCounter(Player player) {
+        Objective objective = scoreboard.getObjective("deaths");
+        if (objective != null) {
+            int currentScore = objective.getScore(player.getName()).getScore();
+            objective.getScore(player.getName()).setScore(currentScore + 1);
+        }
+    }
 }
