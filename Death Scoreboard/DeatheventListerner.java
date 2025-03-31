@@ -16,12 +16,6 @@ public class DeatheventListerner implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        // Verzögertes Update der Scoreboard-Daten 1L = 1 Tick (20ms)
-        Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
-            @Override
-            public void run() {
-                plugin.updateScoreboard();
-            }
-        }, 1L);
+                plugin.incrementDeathCounter(event.getEntity());
     }
 }
