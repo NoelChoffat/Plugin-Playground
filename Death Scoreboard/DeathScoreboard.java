@@ -16,13 +16,13 @@ public final class DeathScoreboard extends JavaPlugin {
     public void onEnable() {
         getLogger().info("DeathStatsPlugin has been enabled!");
 
-        // Scoreboard erstellen
+        // Creating scoreboard
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         if (manager != null) {
             scoreboard = manager.getNewScoreboard();
         }
 
-        // EventListener registrieren
+        // register Eventlistener
         getServer().getPluginManager().registerEvents(new JoinEventListener(this), this);
         getServer().getPluginManager().registerEvents(new DeatheventListerner(this), this);
 
@@ -38,14 +38,14 @@ public final class DeathScoreboard extends JavaPlugin {
     }
 
     public void updateScoreboard() {
-        // Sicherstellen, dass das Objective existiert
+        // Check, if object exists
         Objective objective = scoreboard.getObjective("deaths");
         if (objective == null) {
             objective = scoreboard.registerNewObjective("deaths", "dummy", "Todesstatistiken");
             objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
         }
 
-        // Aktuellen Stand der Tode für alle Spieler setzen
+        // Set Current death count for all players
         for (Player player : Bukkit.getOnlinePlayers()) {
             int deaths = player.getStatistic(Statistic.DEATHS);
             objective.getScore(player.getName()).setScore(deaths);
