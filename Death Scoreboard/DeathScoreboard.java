@@ -41,7 +41,7 @@ public final class DeathScoreboard extends JavaPlugin {
         // Check, if object exists
         Objective objective = scoreboard.getObjective("deaths");
         if (objective == null) {
-            objective = scoreboard.registerNewObjective("deaths", "dummy", "Todesstatistiken");
+            objective = scoreboard.registerNewObjective("deaths", "dummy", "DeathStatistics");
             objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
         }
 
