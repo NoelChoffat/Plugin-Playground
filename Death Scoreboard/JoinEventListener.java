@@ -23,7 +23,7 @@ public class JoinEventListener implements Listener {
         // Create Scoreboard-Object
         Objective objective = scoreboard.getObjective("deaths");
         if (objective == null) {
-            objective = scoreboard.registerNewObjective("deaths", "dummy", "Todesstatistiken");
+            objective = scoreboard.registerNewObjective("deaths", "dummy", "DeathStatistics");
             objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
         }
 
@@ -32,4 +32,5 @@ public class JoinEventListener implements Listener {
         plugin.updateScoreboard();
     }
 }
+
 
