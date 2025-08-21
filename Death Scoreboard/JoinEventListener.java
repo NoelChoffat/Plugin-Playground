@@ -20,15 +20,16 @@ public class JoinEventListener implements Listener {
         Player player = event.getPlayer();
         Scoreboard scoreboard = plugin.getScoreboard();
 
-        // Scoreboard-Objektiv erstellen
+        // Create Scoreboard-Object
         Objective objective = scoreboard.getObjective("deaths");
         if (objective == null) {
             objective = scoreboard.registerNewObjective("deaths", "dummy", "Todesstatistiken");
             objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
         }
 
-        // Scoreboard dem Spieler anzeigen
+        // Show scoreboard to the Player
         player.setScoreboard(scoreboard);
         plugin.updateScoreboard();
     }
 }
+
